@@ -1,0 +1,42 @@
+#include <iostream>
+    
+    int main() {
+        double p, h, imc, pesoIdeal, pesoIdeal2;
+       setlocale(LC_ALL, "portuguese");
+        printf("Digite a massa (em kg): ");
+        scanf("%lf", &p);
+        printf("Digite a altura (em metros): ");
+        scanf("%lf", &h);
+    
+        imc = p / (h * h);
+        printf("Seu IMC é: %.2f\n", imc);
+    
+        if (imc < 17) {
+            printf("Você está muito abaixo do peso.\n");
+        } else if (imc >= 17 && imc <= 18.49) {
+            printf("Você está abaixo do peso.\n");
+        } else if (imc >= 18.5 && imc <= 25) {
+            printf("Parabéns! Você está com o IMC normal.\n");  
+        } else if (imc > 25 && imc <= 29.99) {
+            printf("Você está com sobrepeso.\n");
+        } else if (imc >= 30 && imc <= 34.99) {
+            printf("Você está com obesidade grau I.\n");
+        } else if (imc >= 35 && imc <= 39.99) {
+            printf("Você está com obesidade grau II (severa).\n");
+        } else if (imc > 40) {
+            printf("Você está com obesidade grau III (mórbida).\n");
+        }
+    
+        if (imc > 25) {
+            pesoIdeal = 25 * (h * h);  
+            printf("Você precisaria perder %.2f kg para atingir um IMC de 25.\n", p - pesoIdeal);
+        }
+    
+        if (imc < 18.5) { 
+            pesoIdeal2 = 18.5 * (h * h);  
+            printf("Você precisaria ganhar até %.2f kg para atingir um IMC de 18.5.\n", pesoIdeal2 - p);  
+        }
+    
+        return 0;
+    }
+    
