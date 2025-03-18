@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <locale.h> 
+#include <limits.h> // Para usar INT_MAX que serve para começar com o maior valor possível
+
+int main() {
+    int n, num, menor;
+    setlocale (LC_ALL, "portuguese"); 
+    printf("Digite a quantidade de entradas: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Quantidade inválida!\n");
+        return 1;
+    }
+
+    menor = INT_MAX; 
+
+    for (int i = 0; i < n; i++) {
+        printf("Digite um número: ");
+        scanf("%d", &num);
+
+        if (i == 0 || num < menor) {
+            menor = num;
+        }
+    }
+
+    printf("O menor número é: %d\n", menor);
+
+    return 0;
+}
